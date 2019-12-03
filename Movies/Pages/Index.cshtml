@@ -8,7 +8,7 @@
         <div class="results">
             <h1>Movies</h1>
 
-            @if (Model.Movies.Count == 0)
+            @if (Model.Movies.Count() == 0)
             {
                 <h2>No Results</h2>
             }
@@ -90,6 +90,14 @@
                 Maxiumum IMDB Rating:
                 <input type="number" min="0" max="10" step="0.1" name="maxIMDB" value="@Model.maxIMDB"/>
             </label>
+            <h4>Sort By</h4>
+            <select name="sort">
+                <option value="title" default selected="@(Model.sort == "title")">Title</option>
+                <option value="director" selected="@(Model.sort == "director")">Director</option>
+                <option value="year" selected="@(Model.sort == "year")">Year</option>
+                <option value="imdb" selected="@(Model.sort == "imdb")">IMDB Rating</option>
+                <option value="rt" selected="@(Model.sort == "rt")">Rotten Tomatoes Rating</option>
+            </select>
 
         </form>
     </div>
